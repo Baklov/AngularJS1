@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang='pl' ng-app="myApp">
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+        <meta charset="UTF-8">
+        <title>Projekt AngularJS</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+ 
+     
+        
+        <div ng-controller="ToDoController">
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<input class="form-control" ng-model="todo.id">
+</td>
+<td>
+<input class="form-control" ng-model="todo.text">
+</td>
+<td>
+<button class="btn btn-primacy" ng-click="addNotice()">Add Notice</button>
+</td>
+<td>
+<button class="btn btn-primacy" ng-click="updateNotice()">Update Notice</button>
+</td>
+
+
+
+</tr>
+<tr ng-repeat="todo in todolist">
+<td>
+{{todo.id}}
+</td>
+<td>
+{{todo.text}}
+</td>
+<td><button class="btn btn-danger" ng-click="remove(todo.id)">Remove</button>
+<td><button class="btn btn-warning" ng-click="edit(todo.id,todo.text)">Edit</button>
+
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+ 
+<script src="mycontroler/mycontroler.js"></script>
+    </body>
+</html>
