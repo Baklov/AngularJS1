@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang='pl' ng-app="myApp">
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+        <meta charset="UTF-8">
+        <title>My Customer AngularJS</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Client Count</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home Client</a></li>
+    </ul>
+  </div>
+</nav>
+ 
+     
+        
+        <div ng-controller="ToDoController">
+        
+		        <div class="jumbotron text-center">
+		            <h1>My Customers in MYSQL DB<span class="label label-info">{{ todolist.length }}</span></h1>
+		        </div>
+		<table class="table table-hover table-striped"> 
+		<thead>
+		<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Phone</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td>
+		<input class="form-control" ng-model="todo.id">
+		</td>
+		<td>
+		<input class="form-control" ng-model="todo.name">
+		</td>
+		<td>
+		<input class="form-control" ng-model="todo.address">
+		</td>
+		<td>
+		<input class="form-control" ng-model="todo.phone">
+		</td>
+		<td>
+		</td>
+		<td>
+		<button class="btn btn-success" ng-click="updateNotice()">Update Customer info</button>
+		</td>
+		
+		
+		
+		</tr>
+		<tr ng-repeat="todo in todolist">
+		<td>
+		{{todo.id}}
+		</td>
+		<td>
+		{{todo.name}}
+		</td>
+		<td>
+		{{todo.address}}
+		</td>
+		<td>
+		{{todo.phone}}
+		</td>
+		<td><button class="btn btn-danger" ng-click="remove(todo.id)">Remove</button></td>
+		<td><button class="btn btn-warning" ng-click="edit(todo.id,todo.text)">Edit</button>
+		
+		</td>
+		
+		</tr>
+		</tbody>
+		</table >
+		
+		 <div class="panel panel-info">
+		      <div class="panel-heading">Add new Customers:</div>
+		      <div class="panel-body">
+		      
+		      <div class="col-sm-3"><button class="btn btn-primary" ng-click="addNotice()">Add Customer Info</button></div>
+		      <div class="col-sm-9"></div>
+		      
+		      
+		</div>
+		    </div>
+
+</div>
+ 
+<script src="mycontroler/mycontroler.js"></script>
+    </body>
+</html>
