@@ -1,0 +1,83 @@
+<table  class ="table table-stripped">
+    <thead class="thead-inverse">
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        </tr>
+		</thead>
+		<tbody>
+				<tr>
+						<td>
+						<input type="text" [(ngModel)]="client.id" name = "id" class="form-control"  #id="ngModel" required>
+						<div *ngIf="id.errors?.required&&id.touched " class="alert alert-danger">
+id is required!!!!
+						</div>
+						</td>
+						<td>
+						<input type="text" [(ngModel)]="client.name"  name = "name" class="form-control" #name>
+						</td>
+						<td>
+						<input type="text" [(ngModel)]="client.address"  name = "address" class="form-control" #address>
+						</td>
+						<td>
+						<input type="text" [(ngModel)]="client.phone" name = "phone" class="form-control" #phone>
+						</td>
+						<td>
+						</td>
+						<td>
+								<div *ngIf="!(id.errors?.required&&id.touched) " >
+										<button class="btn btn-success"  (click)="updateClient()">Update Customer info</button>
+						
+								</div>
+						</td>
+						
+						
+						
+						</tr>
+		
+			<tr *ngFor="let  todo of todolist">
+			<td>
+			{{todo.id}}
+			</td>
+			<td>
+			{{todo.name}}
+			</td>
+			<td>
+			{{todo.address}}
+			</td>
+			<td>
+			{{todo.phone}}
+			</td>
+			<td><button class="btn btn-danger" (click)="remove(todo.id)">Remove</button></td>
+			<td><button class="btn btn-warning" (click)="edit(todo.id,todo.name,todo.address,todo.phone)">Edit</button>
+			
+			</td>
+			
+			</tr>
+			</tbody>
+
+			<div class="panel panel-info">
+					<div class="panel-heading">Add new Customers:</div>
+					<div class="panel-body">
+					
+						
+					<div *ngIf="!(id.errors?.required&&id.touched) " class="col-sm-3">
+						<button class="btn btn-primary" (click)="addClient(id.value,name.value,address.value,phone.value)">Add Customer Info</button>
+					</div>
+					<div class="col-sm-9"></div>
+					
+					
+			  </div>
+				  </div>
+
+</table>
+
+<ng-template #noClients>
+<hr>
+<h5>There is no client in system</h5>
+
+
+
+</ng-template>
